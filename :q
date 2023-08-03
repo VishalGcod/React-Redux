@@ -1,0 +1,32 @@
+import React from 'react'
+import { useDispatch,useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchUsers } from './src/actions';
+
+const FetchRedux=()=> {
+
+    const dispatch=useDispatch()
+    // const {loading,users,error}=useSelector((state)=>state)
+    
+    useEffect(()=>{
+        dispatch(fetchUsers(dispatch))
+    },[])
+
+    // if(loading){
+    //     return <h1>loading...</h1>
+    // }
+    // if(error){
+    //     return <h1>Error...:{error.message}</h1>
+    // }
+  return (
+    <div>
+        // {
+        //     users.map((e)=>(
+        //         <h1>{e.title}</h1>
+        //     ))
+        // }
+    </div>
+  )
+}
+
+export default FetchRedux
