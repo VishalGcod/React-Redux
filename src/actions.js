@@ -31,9 +31,10 @@ export const postReq = (data) => {
   };
 };
 
-export const delReq = () => {
+export const delReq = (data) => {
   return {
     type: DELETE_USER,
+    payload: data,
   };
 };
 
@@ -76,10 +77,9 @@ export const postUsers = (data) => {
 export const delUsers = (index) => {
   return (dispatch) => {
     axios
-      .delete(`https://fakestoreapi.com/products/${index}`)
+      .delete("https://fakestoreapi.com/products/" + index)
       .then((res) => {
-        dispatch(delReq());
-        console.log(res.data);
+        dispatch(delReq(index));
       })
       .catch((error) => {
         console.log(error);
@@ -87,12 +87,12 @@ export const delUsers = (index) => {
   };
 };
 
-export const updateUsers = (index) => {
+export const updateUsers = (index,data) => {
   return (dispatch) => {
     axios
-      .put("https://fakestoreapi.com/products/" + index)
+      .put("https://fakestoreapi.com/products/" + index, { data })
       .then((res) => {
-        // dispatch(updateReq(data));
+        dispatch(updateReq(data));
       })
       .catch((error) => {
         console.log(error);
