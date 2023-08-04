@@ -31,10 +31,9 @@ export const postReq = (data) => {
   };
 };
 
-export const delReq = (data) => {
+export const delReq = () => {
   return {
     type: DELETE_USER,
-    payload: data,
   };
 };
 
@@ -77,10 +76,10 @@ export const postUsers = (data) => {
 export const delUsers = (index) => {
   return (dispatch) => {
     axios
-      .delete("https://fakestoreapi.com/products/" + index)
+      .delete(`https://fakestoreapi.com/products/${index}`)
       .then((res) => {
-        dispatch(delReq(res.data));
-        console.log(res);
+        dispatch(delReq());
+        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);

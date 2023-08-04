@@ -31,7 +31,6 @@ const initialFetch = {
           }
         case DELETE_USER:
           return{
-            ...state,
             users:action.payload
           }
           case UPDATE_USER:
