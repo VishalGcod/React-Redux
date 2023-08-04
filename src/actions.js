@@ -79,7 +79,7 @@ export const delUsers = (index) => {
     axios
       .delete("https://fakestoreapi.com/products/" + index)
       .then((res) => {
-        // dispatch(delReq(res.data));
+        dispatch(delReq(res.data));
         console.log(res);
       })
       .catch((error) => {
