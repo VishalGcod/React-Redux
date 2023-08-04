@@ -79,8 +79,7 @@ export const delUsers = (index) => {
     axios
       .delete("https://fakestoreapi.com/products/" + index)
       .then((res) => {
-        dispatch(delReq(res.data));
-        console.log(res);
+        dispatch(delReq(index));
       })
       .catch((error) => {
         console.log(error);
@@ -88,12 +87,12 @@ export const delUsers = (index) => {
   };
 };
 
-export const updateUsers = (index) => {
+export const updateUsers = (index,data) => {
   return (dispatch) => {
     axios
-      .put("https://fakestoreapi.com/products/" + index)
+      .put("https://fakestoreapi.com/products/" + index, { data })
       .then((res) => {
-        // dispatch(updateReq(data));
+        dispatch(updateReq(data));
       })
       .catch((error) => {
         console.log(error);
