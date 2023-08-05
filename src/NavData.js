@@ -5,8 +5,10 @@ import axios from "axios";
 import { useState } from "react";
 // import { MDBIcon } from "mdb-react-ui-kit";
 
-const Form=styled.form`display:flex;
-flex-direction:column`;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledNavbar = styled.div`
   background-color: #333;
