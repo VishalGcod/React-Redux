@@ -5,6 +5,9 @@ import {
   POST_USER,
   DELETE_USER,
   UPDATE_USER,
+  ADD_FORM,
+  UPDATE_FORM,
+  DELETE_FORM,
 } from "./actions";
 const initialFetch = {
   loading: false,
@@ -39,14 +42,34 @@ export const fetchReducer = (state = initialFetch, action) => {
     case DELETE_USER:
       return {
         ...state,
-        users: state.users.filter((item, Index) => Index !== action.payload)
+        users: state.users.filter((item, Index) => Index !== action.payload),
       };
     case UPDATE_USER:
-      return{
+      return {
         ...state,
-        users:action.payload
-      }
+        users: action.payload,
+      };
     default:
       return state;
   }
 };
+
+const initialForm={
+  content:[]
+}
+
+export const formReducer=(state=initialForm,action)=>{
+  switch(action.type){
+    case ADD_FORM:
+      return{
+        content:[...state.content,action.payload],
+      }
+      case DELETE_FORM:
+      return{
+        ...state,
+        content:action.payload,
+      }
+      default:
+        return state
+  } 
+}

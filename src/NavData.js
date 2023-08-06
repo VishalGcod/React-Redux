@@ -5,6 +5,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Form, Input, Select, Space } from "antd";
 import Operation from "antd/es/transfer/operation";
+import { useDispatch, useSelector } from "react-redux";
+import { formAdd, formDel } from "./actions";
 // import { MDBIcon } from "mdb-react-ui-kit";
 
 const FormDef = styled.form`
@@ -89,6 +91,26 @@ export const Data = () => {
     e.preventDefault();
     setarray([...array, formDatas]);
     console.log(options);
+    setFormDatas({
+      email: "",
+      name: "",
+      date: "",
+      num: "",
+      check1: "",
+      check2: "",
+      check3: "",
+    });
+  };
+
+  const [search, setSearch] = useState("");
+  const [searchDisplay, setSearchDisplay] = useState([]);
+  const searchData = (e) => {
+    setSearch(e.target.value);
+    var filtered = array.filter((e) =>
+      e.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setSearchDisplay(filtered);
+    console.log(searchDisplay);
   };
 
   return (
@@ -167,6 +189,18 @@ export const Data = () => {
         </select>
         <button type="submit">Submit</button>
       </FormDef>
+      <input type="text" placeholder="Search" onChange={searchData}></input>
+      {searchDisplay.map((e) => (
+        <div>
+          <h3>{e.email}</h3>
+          <h3>{e.name}</h3>
+          <h3>{e.date}</h3>
+          <h3>{e.num}</h3>
+          <h3>
+            {e.check1} {e.check2} {e.check3}
+          </h3>
+        </div>
+      ))}
       <div>
         {array.map((e) => (
           <div>
@@ -188,20 +222,59 @@ export const Data = () => {
 };
 
 export const About = () => {
-  return <div>About Page</div>;
+  const[ant,setAnt]=useState([])
+  const[sub,setsub]=useState(true)
+  const dispatch=useDispatch()
+  const{content}=useSelector((state)=>state.forms)
+  const onFinish=(e)=>{
+    setAnt([...ant,e])
+    console.log(content);
+    dispatch(formAdd(e))
+    // if(e.username!=''){
+    //   setsub(!sub)
+    // }
+  }
+  const handleDelete=(ind)=>{
+    const filt=content.filter((_,i)=>i!==ind)
+    console.log(filt);
+    dispatch(formDel(filt))
+  }
+  return (
+    <div style={{display:'grid', placeItems:'center'}}>
+      <Form style={{width:'40%'}} onFinish={onFinish}>
+        <Form.Item label="user" name="username">
+          <Input placeholder="user name"></Input>
+        </Form.Item>
+        <Form.Item label="password" name="password">
+          <Input.Password placeholder="password"></Input.Password>
+        </Form.Item>
+        {sub &&<Form.Item>
+          <Button block type="primary" htmlType="submit">
+            Login
+          </Button>
+        </Form.Item>}
+      </Form>
+      <div>
+        {content.map((a,index)=>(
+          <div>
+          <p>{a.username}</p>
+          <Button type="primary" onClick={()=>handleDelete(index)}>Del</Button>
+          <Button type="primary">Up</Button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export const Login = () => {
-  const onFinish=(values)=>{
-    console.log({values});
-  }
+  const onFinish = (values) => {
+    console.log({ values });
+  };
   return (
     <div>
-      <Form onFinish={onFinish} style={{width:500}}>
-        <Form.Item
-          name={"teacher"}
-          label="teachername"
-        >
+      <Form onFinish={onFinish} style={{ width: 500 }}>
+        <Form.Item name={"teacher"} label="teachername">
           <Input placeholder="teacher name" />
         </Form.Item>
         <Form.List name={"students"}>
@@ -210,32 +283,29 @@ export const Login = () => {
               {fields.map((field, index) => {
                 return (
                   <Space key={field.key} direction="horizontal" size={12}>
-                  <Form.Item
-                    key={field.key}           
-                    name={[field.name, "first"]}
-                    label={`${index + 1}-Students`}
-                  >
-                    <Input placeholder="First name" />
-                  </Form.Item>
-                  <Form.Item
-                    key={field.key}
-                    name={[field.name, "last"]}
-                    label={`${index + 1}-Students`}
-                  >
-                    <Input placeholder="Last name" />
-                  </Form.Item>
-                  <Form.Item
-                    key={field.key}
-                    name={[field.name, "gender"]}
-                  >
-                    <Select placeholder="gender">
-                      {['male','female'].map((gender)=>(
-                        <Select.Option value={gender} key={gender}>{gender}
-                        </Select.Option>
-                      ))}
-                    </Select>
-                  </Form.Item>
-                  
+                    <Form.Item
+                      key={field.key}
+                      name={[field.name, "first"]}
+                      label={`${index + 1}-Students`}
+                    >
+                      <Input placeholder="First name" />
+                    </Form.Item>
+                    <Form.Item
+                      key={field.key}
+                      name={[field.name, "last"]}
+                      label={`${index + 1}-Students`}
+                    >
+                      <Input placeholder="Last name" />
+                    </Form.Item>
+                    <Form.Item key={field.key} name={[field.name, "gender"]}>
+                      <Select placeholder="gender">
+                        {["male", "female"].map((gender) => (
+                          <Select.Option value={gender} key={gender}>
+                            {gender}
+                          </Select.Option>
+                        ))}
+                      </Select>
+                    </Form.Item>
                   </Space>
                 );
               })}
@@ -252,7 +322,9 @@ export const Login = () => {
             </>
           )}
         </Form.List>
-        <Button htmlType="submit" type="primary">Submit</Button>
+        <Button htmlType="submit" type="primary">
+          Submit
+        </Button>
       </Form>
     </div>
   );

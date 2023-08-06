@@ -5,6 +5,10 @@ export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const POST_USER = "POST_USER";
 export const DELETE_USER = "DELETE_USER";
 export const UPDATE_USER = "UPDATE_USER";
+export const ADD_FORM='ADD_FORM';
+export const DELETE_FORM='DELETE_FORM';
+export const UPDATE_FORM='UPDATE_FORM';
+
 
 export const fetchRequest = () => {
   return {
@@ -99,6 +103,26 @@ export const updateUsers = (index,data) => {
       });
   };
 };
+
+export const formAdd=(data)=>{
+  return{
+  type:ADD_FORM,
+  payload:data
+  }
+}
+export const formDel=(data)=>{
+  return{
+  type:DELETE_FORM,
+  payload:data
+  }
+}
+export const formUp=(data)=>{
+  return{
+  type:UPDATE_FORM,
+  payload:data
+  }
+}
+
 
 // export const fetchUsers=()=>{
 //   return(dispatch)=>{
