@@ -7,6 +7,7 @@ import { styled } from "styled-components";
 import { connect } from "react-redux";
 // import { Button } from "antd";
 import { Menu, Dropdown, Button, Icon, message, Input } from "antd";
+import axios from "axios";
 
 const Table = styled.table`
   border: 2px solid pink;
@@ -28,6 +29,16 @@ const FetchRedux = ({ users, dispatchData }) => {
   const [update, setupdate] = useState("");
   const { loading, error } = useSelector((state) => state);
   // const { users } = useSelector((state) => state);
+  const [dropDownData, getDropDownData] = useState([]);
+
+  const dropDown = () => {
+    axios
+      .get("http://localhost:8000/countries")
+      .then((res) => {
+        getDropDownData(res.data);
+      })
+      .catch((err) => console.log(error));
+  };
 
   const [indexVal, setindex] = useState(null);
   useEffect(() => {
@@ -37,6 +48,7 @@ const FetchRedux = ({ users, dispatchData }) => {
   const deleteOnClick = (index) => {
     // const DelData = users.filter((_, i) => i !== index);
     dispatch(delUsers(index));
+    console.log(dropDownData);
   };
   const updateOnClick = (index) => {
     setindex(index - 1);
