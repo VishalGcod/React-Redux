@@ -124,7 +124,7 @@ const FetchRedux = ({ users, dispatchData }) => {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users,
+    users: state.fetchData.users,
   };
 };
 
