@@ -83,13 +83,33 @@ export const Data = () => {
   const valueChange = (e) => {
     const { name, value } = e.target;
     setFormDatas({ ...formDatas, [name]: value });
+
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
     setarray([...array, formDatas]);
     console.log(options);
+    setFormDatas({
+      email: "",
+      name: "",
+      date: "",
+      num: "",
+      check1: "",
+      check2: "",
+      check3: "",
+    })
   };
+
+  const[search,setSearch]=useState('')
+  const[searchDisplay,setSearchDisplay]=useState([])
+  const searchData=(e)=>{
+    setSearch(e.target.value)
+    var filtered=array.filter((e)=>e.name.toLowerCase().includes(search.toLowerCase()))
+    setSearchDisplay(filtered)
+    console.log(searchDisplay);
+  }
+
 
   return (
     <FormDiv>
@@ -167,6 +187,18 @@ export const Data = () => {
         </select>
         <button type="submit">Submit</button>
       </FormDef>
+      <input type="text" placeholder="Search" onChange={searchData}></input>
+      {searchDisplay.map((e)=>(
+        <div>
+        <h3>{e.email}</h3>
+        <h3>{e.name}</h3>
+        <h3>{e.date}</h3>
+        <h3>{e.num}</h3>
+        <h3>
+          {e.check1} {e.check2} {e.check3}
+        </h3>
+      </div>
+      ))}
       <div>
         {array.map((e) => (
           <div>
@@ -235,7 +267,6 @@ export const Login = () => {
                       ))}
                     </Select>
                   </Form.Item>
-                  
                   </Space>
                 );
               })}
