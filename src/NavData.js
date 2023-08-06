@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import axios from "axios";
 import { useState } from "react";
+import { Form, Input } from "antd";
+import Operation from "antd/es/transfer/operation";
 // import { MDBIcon } from "mdb-react-ui-kit";
 
-const Form = styled.form`
+const FormDef = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +93,7 @@ export const Data = () => {
 
   return (
     <FormDiv>
-      <Form onSubmit={formSubmit}>
+      <FormDef onSubmit={formSubmit}>
         <input
           type="email"
           value={formDatas.email}
@@ -164,7 +166,7 @@ export const Data = () => {
           ))}
         </select>
         <button type="submit">Submit</button>
-      </Form>
+      </FormDef>
       <div>
         {array.map((e) => (
           <div>
@@ -190,7 +192,29 @@ export const About = () => {
 };
 
 export const Login = () => {
-  return <div>Login Page</div>;
+  return <div>
+    <Form>
+      <Form.Item style={{width:'300px'}} name={'teacher'} label="teachername">
+        <Input placeholder='teacher name'/>
+      </Form.Item>
+      <Form.Item style={{width:'300px'}} name={'class'} label="classname">
+        <Input placeholder='class name'/>
+      </Form.Item>
+      <Form.List>
+        {(fields,Operation)=>(
+          <>
+          {fields.map((field,index)=>{
+            return(
+              <Form.Item style={{width:'300px'}} name={'class'} label="classname">
+        <Input placeholder='class name'/>
+      </Form.Item>
+            )
+          })}
+          </>
+        )}
+      </Form.List>
+    </Form>
+  </div>;
 };
 
 export const Navbar = () => {
