@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import axios from "axios";
 import { useState } from "react";
-import { Form, Input } from "antd";
+import { Button, Form, Input, Select, Space } from "antd";
 import Operation from "antd/es/transfer/operation";
 // import { MDBIcon } from "mdb-react-ui-kit";
 
@@ -68,7 +68,7 @@ export const Data = () => {
   }, []);
 
   const [array, setarray] = useState([]);
-  const [options,setOptions]=useState('')
+  const [options, setOptions] = useState("");
   const [formDatas, setFormDatas] = useState({
     email: "",
     name: "",
@@ -154,7 +154,7 @@ export const Data = () => {
         ></input>
         <select
           name="countries"
-          onChange={(e)=>setOptions(e.target.value)}
+          onChange={(e) => setOptions(e.target.value)}
           value={options}
         >
           {dropDownData.map((e) => (
@@ -170,16 +170,16 @@ export const Data = () => {
       <div>
         {array.map((e) => (
           <div>
-          <div>
-            <h3>{e.email}</h3>
-            <h3>{e.name}</h3>
-            <h3>{e.date}</h3>
-            <h3>{e.num}</h3>
-            <h3>
-              {e.check1} {e.check2} {e.check3}
-            </h3>
-          </div>
-          <h3>{options}</h3>
+            <div>
+              <h3>{e.email}</h3>
+              <h3>{e.name}</h3>
+              <h3>{e.date}</h3>
+              <h3>{e.num}</h3>
+              <h3>
+                {e.check1} {e.check2} {e.check3}
+              </h3>
+            </div>
+            <h3>{options}</h3>
           </div>
         ))}
       </div>
@@ -192,29 +192,70 @@ export const About = () => {
 };
 
 export const Login = () => {
-  return <div>
-    <Form>
-      <Form.Item style={{width:'300px'}} name={'teacher'} label="teachername">
-        <Input placeholder='teacher name'/>
-      </Form.Item>
-      <Form.Item style={{width:'300px'}} name={'class'} label="classname">
-        <Input placeholder='class name'/>
-      </Form.Item>
-      <Form.List>
-        {(fields,Operation)=>(
-          <>
-          {fields.map((field,index)=>{
-            return(
-              <Form.Item style={{width:'300px'}} name={'class'} label="classname">
-        <Input placeholder='class name'/>
-      </Form.Item>
-            )
-          })}
-          </>
-        )}
-      </Form.List>
-    </Form>
-  </div>;
+  const onFinish=(values)=>{
+    console.log({values});
+  }
+  return (
+    <div>
+      <Form onFinish={onFinish} style={{width:500}}>
+        <Form.Item
+          name={"teacher"}
+          label="teachername"
+        >
+          <Input placeholder="teacher name" />
+        </Form.Item>
+        <Form.List name={"students"}>
+          {(fields, { add, remove }) => (
+            <>
+              {fields.map((field, index) => {
+                return (
+                  <Space key={field.key} direction="horizontal" size={12}>
+                  <Form.Item
+                    key={field.key}           
+                    name={[field.name, "first"]}
+                    label={`${index + 1}-Students`}
+                  >
+                    <Input placeholder="First name" />
+                  </Form.Item>
+                  <Form.Item
+                    key={field.key}
+                    name={[field.name, "last"]}
+                    label={`${index + 1}-Students`}
+                  >
+                    <Input placeholder="Last name" />
+                  </Form.Item>
+                  <Form.Item
+                    key={field.key}
+                    name={[field.name, "gender"]}
+                  >
+                    <Select placeholder="gender">
+                      {['male','female'].map((gender)=>(
+                        <Select.Option value={gender} key={gender}>{gender}
+                        </Select.Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                  
+                  </Space>
+                );
+              })}
+              <Form.Item>
+                <Button
+                  type="dashed"
+                  block
+                  style={{ width: "200px" }}
+                  onClick={() => add()}
+                >
+                  Add a Student
+                </Button>
+              </Form.Item>
+            </>
+          )}
+        </Form.List>
+        <Button htmlType="submit" type="primary">Submit</Button>
+      </Form>
+    </div>
+  );
 };
 
 export const Navbar = () => {
