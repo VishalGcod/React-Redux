@@ -69,6 +69,11 @@ export const formReducer=(state=initialForm,action)=>{
         ...state,
         content:action.payload,
       }
+      case UPDATE_FORM:
+      return{
+        ...state,
+        content:action.payload,
+      }
       default:
         return state
   } 

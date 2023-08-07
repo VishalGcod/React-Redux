@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Button, Form, Input, Select, Space } from "antd";
 import Operation from "antd/es/transfer/operation";
 import { useDispatch, useSelector } from "react-redux";
-import { formAdd, formDel } from "./actions";
+import { formAdd, formDel, formUp } from "./actions";
 // import { MDBIcon } from "mdb-react-ui-kit";
 
 const FormDef = styled.form`
@@ -117,12 +117,14 @@ export const Data = () => {
     <FormDiv>
       <FormDef onSubmit={formSubmit}>
         <input
+        placeholder="enter mail"
           type="email"
           value={formDatas.email}
           onChange={valueChange}
           name="email"
         ></input>
         <input
+        placeholder="name"
           type="text"
           value={formDatas.name}
           onChange={valueChange}
@@ -183,7 +185,7 @@ export const Data = () => {
             <option>
               <span>{e.dial_code} </span>
               <span>{e.name}</span>
-              {/* <span>{e.code}</span> */}
+              <span>{e.flag}</span>
             </option>
           ))}
         </select>
@@ -212,8 +214,8 @@ export const Data = () => {
               <h3>
                 {e.check1} {e.check2} {e.check3}
               </h3>
+              <h3>{}</h3>
             </div>
-            <h3>{options}</h3>
           </div>
         ))}
       </div>
@@ -224,6 +226,8 @@ export const Data = () => {
 export const About = () => {
   const[ant,setAnt]=useState([])
   const[sub,setsub]=useState(true)
+  const[update,setUpdate]=useState('')
+  // const[inputHide,setInputHide]=(true) 
   const dispatch=useDispatch()
   const{content}=useSelector((state)=>state.forms)
   const onFinish=(e)=>{
@@ -239,6 +243,13 @@ export const About = () => {
     console.log(filt);
     dispatch(formDel(filt))
   }
+  const handleUpdate=(ind)=>{
+    const updatedData=[...content]
+    updatedData[ind]={username:update}
+    dispatch(formUp(updatedData))
+    // setInputHide(!inputHide)
+  }
+
   return (
     <div style={{display:'grid', placeItems:'center'}}>
       <Form style={{width:'40%'}} onFinish={onFinish}>
@@ -259,7 +270,10 @@ export const About = () => {
           <div>
           <p>{a.username}</p>
           <Button type="primary" onClick={()=>handleDelete(index)}>Del</Button>
-          <Button type="primary">Up</Button>
+          <Button type="primary" onClick={()=>handleUpdate(index)}>Up</Button>
+          {/* {inputHide &&  */}
+          <input type="text" placeholder="dataToUpdate" onChange={(e)=>setUpdate(e.target.value)}></input>
+          {/* } */}
           </div>
         ))}
       </div>
