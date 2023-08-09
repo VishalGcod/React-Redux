@@ -7,11 +7,13 @@ import { store } from "./store";
 import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { Navbar, About, Login, Data } from "./NavData";
+import { LandingPage } from "./landingPage";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <LandingPage/>
+      {/* <Router>
         <Provider store={store}>
           <Navbar />
           <Routes>
@@ -21,7 +23,7 @@ function App() {
             <Route path="/login" Component={Login}></Route>
           </Routes>
         </Provider>
-      </Router>
+      </Router> */}
     </div>
   );
 }
