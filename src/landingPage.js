@@ -13,35 +13,47 @@ import yourUsers from "./imageSvgPngs/illustration-your-users.svg";
 import Mockups from "./imageSvgPngs/illustration-mockups.svg";
 
 const Div = styled.div`
-  height: 85dvh;
+  height: 95dvh;
   background-image: url(${desktopBackgroundImage});
 `;
 const DivHead = styled.header`
-  height:17dvh;
-  display:flex;
-  justify-content:space-between;
+  height: 17dvh;
+  display: flex;
+  justify-content: space-between;
 `;
-const LogoImage= styled.img`
-width:170px
+const LogoImage = styled.img`
+  width: 170px;
 `;
-const BodyImage= styled.img`
-width:650px
+const BodyImage = styled.img`
+  width: 650px;
 `;
 const DivBody = styled.section`
-  height:60dvh;
-  display:flex;
-  justify-content:space-around;
+  height: 900px;
+  display: flex;
+  justify-content: space-around;
 `;
 
-const DivFlex=styled.div`
-display:flex;
-align-items:center;
-justify-content:center;
-width:20%;
-`; 
+const DivFlex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+`;
 
-const Content=styled.h1`
-font-size:35px;
+const Content = styled.h1`
+  font-size: 40px;
+`;
+
+const Blocks = styled.div`
+  height: 300px;
+  display: flex;
+  border: 1px solid grey;
+  width: 85%;
+  margin: 5% 7% 1% 8%;
+`;
+const Footer = styled.footer`
+  height: 300px;
+  display: flex;
 `;
 export const LandingPage = () => {
   return (
@@ -51,16 +63,15 @@ export const LandingPage = () => {
           <DivFlex>
             <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
           </DivFlex>
-          <div>
-          </div>
+          <div></div>
           <DivFlex>
             <button>Try it Free</button>
           </DivFlex>
         </DivHead>
         <DivBody>
-          <div style={{width:'400px'}}>
+          <div style={{ width: "450px" }}>
             <Content>Build The Community Your Fans Will Love</Content>
-            <p>
+            <p style={{ fontSize: "18px" }}>
               Huddle re-imagines the way we build communities. You have a voice,
               but so does your audience. Create connections with your users as
               you engage in genuine discussion.
@@ -72,6 +83,60 @@ export const LandingPage = () => {
           </div>
         </DivBody>
       </Div>
+      <section>
+        <Blocks>
+          <div>
+            <h3>Grow Together</h3>
+            <p>
+              Generate meaningful discussions with your audience and build a
+              strong, loyal community. Think of the insightful conversations you
+              miss out on with a feedback form.
+            </p>
+          </div>
+          <div>
+            <img style={{width:'350px'}} src={growingTogether} alt="blockImage1"></img>
+          </div>
+        </Blocks>
+        <Blocks>
+          <div>
+            <img style={{width:'350px'}} src={flowingConvo} alt="blockImage2"></img>
+          </div>
+          <div>
+            <h3>Flowing Conversations</h3>
+            <p>
+              You wouldn't paginate a conversation in real life, so why do it
+              online? Our threads have just-in-time loading for a more natural
+              flow.
+            </p>
+          </div>
+        </Blocks>
+        <Blocks>
+          <div>
+            <h3>Your Users</h3>
+            <p>
+              It takes no time at all to integrate Huddle with your app's
+              authentication solution. This means, once signed in to your app,
+              your users can start chatting immediately.
+            </p>
+          </div>
+          <div>
+            <img style={{width:'350px'}} src={yourUsers} alt="blockImage3"></img>
+          </div>
+        </Blocks>
+      </section>
+      <Footer>
+        <div>
+          {" "}
+          <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </p>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </Footer>
     </div>
   );
 };
