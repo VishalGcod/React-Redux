@@ -58,14 +58,6 @@ const Blocks = styled.div`
   margin: 3% 8%;
 `;
 
-
-
-const Footer = styled.footer`
-  height: 300px;
-  display: flex;
-  background-color: rgb(0, 37, 46);
-`;
-
 const Button1 = styled.button`
   height: 50px;
   width: 200px;
@@ -110,39 +102,70 @@ const Para1 = styled.p`
 const BlockImages = styled.div`
   display: flex;
   align-items: center;
-  margin-left:3%;
+  margin-left: 3%;
 `;
 
 const BlockImagesTopBottom = styled.div`
   display: flex;
   align-items: center;
-  margin-left:20%;
+  margin-left: 20%;
 `;
 
-const BlockContent=styled.div`
-  display:flex;
+const BlockContent = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content:center;
+  justify-content: center;
   text-align: left;
-  margin-left:10%;
+  margin-left: 10%;
 `;
 
-const BlockHeaders=styled.h3`
-font-size:30px;
-font-weight:600px;
+const BlockHeaders = styled.h3`
+  font-size: 30px;
+  font-weight: 600px;
 `;
-const BlockParas=styled.p`
-font-size:17px;
-font-weight:600px;
-max-width:450px;
+const BlockParas = styled.p`
+  font-size: 17px;
+  font-weight: 600px;
+  max-width: 450px;
 `;
 
-const DivAbsolute=styled.div`
-height:500px
-width:40%;
-border:2px solid black;
+const DivAbsolute = styled.div`
+  width: 60%;
+  margin-top: 28%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 38%;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
 `;
+
+const Button3 = styled.button`
+  height: 75px;
+  width: 350px;
+  border-radius: 40px;
+  border: none;
+  background-color: rgb(254, 82, 192);
+  box-shadow: 1px 1px 2px lightgrey;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+`;
+
+const Footer = styled.footer`
+  margin-top: 13%;
+  height: 480px;
+  display: flex;
+  background-color: rgb(0, 37, 46);
+  color: white;
+`;
+
+
 
 export const LandingPage = () => {
   return (
@@ -183,12 +206,20 @@ export const LandingPage = () => {
             </BlockParas>
           </BlockContent>
           <BlockImagesTopBottom>
-            <img style={{width: '370px'}} src={growingTogether} alt="blockImage1"></img>
+            <img
+              style={{ width: "370px" }}
+              src={growingTogether}
+              alt="blockImage1"
+            ></img>
           </BlockImagesTopBottom>
         </Blocks>
         <Blocks>
           <BlockImages>
-            <img style={{width: '370px'}}  src={flowingConvo} alt="blockImage2"></img>
+            <img
+              style={{ width: "370px" }}
+              src={flowingConvo}
+              alt="blockImage2"
+            ></img>
           </BlockImages>
           <BlockContent>
             <BlockHeaders>Flowing Conversations</BlockHeaders>
@@ -209,24 +240,44 @@ export const LandingPage = () => {
             </BlockParas>
           </BlockContent>
           <BlockImagesTopBottom>
-            <img style={{width: '370px'}}  src={yourUsers} alt="blockImage3"></img>
+            <img
+              style={{ width: "370px" }}
+              src={yourUsers}
+              alt="blockImage3"
+            ></img>
           </BlockImagesTopBottom>
         </Blocks>
       </section>
-      <DivAbsolute>
-        <h1>Ready To Build Your Community?</h1>
-        <Button2>Get Started For Free</Button2>
-      </DivAbsolute>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "120px",
+        }}
+      >
+        <DivAbsolute>
+          <h1>Ready To Build Your Community?</h1>
+          <Button3>Get Started For Free</Button3>
+        </DivAbsolute>
+      </div>
       <Footer>
         <div>
-          <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua
           </p>
         </div>
-        <div></div>
-        <div></div>
+        <div>
+          <span>About Us</span>
+          <span>What We Do</span>
+          <span>FAQ</span>
+        </div>
+        <div>
+          <span>Career</span>
+          <span>Blog</span>
+          <span>Contact Us</span>
+        </div>
         <div></div>
       </Footer>
     </div>
