@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import desktopBackgroundImage from "./imageSvgPngs/bg-hero-desktop.svg";
- export const Div = styled.div`
+export const Div = styled.div`
   height: 95dvh;
   background-image: url(${desktopBackgroundImage});
   background-repeat: no-repeat;
@@ -87,7 +87,7 @@ export const Para1 = styled.p`
   margin-top: 0%;
 `;
 
-export const BlockImages = styled.div`
+export const BlockImage = styled.div`
   display: flex;
   align-items: center;
   margin-left: 3%;
@@ -108,11 +108,11 @@ export const BlockContent = styled.div`
   margin-left: 10%;
 `;
 
-export const BlockHeaders = styled.h3`
+export const BlockHeader = styled.h3`
   font-size: 30px;
   font-weight: 600px;
 `;
-export const BlockParas = styled.p`
+export const BlockPara = styled.p`
   font-size: 17px;
   font-weight: 600px;
   max-width: 450px;
@@ -157,4 +157,17 @@ export const FooterDiv1 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+`;
+
+export const ParaWidth = styled.p`
+  max-width: 300px;
+`;
+export const HoverAbove = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+`;
+export const Image = styled.img`
+  width: 370px;
 `;

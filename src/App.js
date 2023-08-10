@@ -1,13 +1,10 @@
 import React from "react";
-import "./App.css";
-import { LandingPage } from "./landingPage";
-import HuddleBody from "./huddleBody.Js";
+import { LandingPage } from "./huddleLandingPage";
 
 function App() {
   return (
     <div className="App">
       <LandingPage/>
-      {/* <HuddleBody/> */}
     </div>
   );
 }

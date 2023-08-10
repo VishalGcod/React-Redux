@@ -1,86 +1,74 @@
-import React from "react";
-import { styled } from "styled-components";
-import {
-  Div,
-  DivHead,
-  LogoImage,
-  BodyImage,
-  DivBody,
-  DivFlex,
-  Content,
-  Blocks,
-  Button1,
-  Button2,
-  Button3,
-  HomeData,
-  Para1,
-  BlockImages,
-  BlockImagesTopBottom,
-  BlockContent,
-  BlockHeaders,
-  BlockParas,
-  DivAbsolute,
-  Footer,
-  FooterDiv1,
-} from "./styledComponents";
+import React from 'react'
+import { styled } from 'styled-components';
 import flowingConvo from "./imageSvgPngs/illustration-flowing-conversation.svg";
 import growingTogether from "./imageSvgPngs/illustration-grow-together.svg";
 import yourUsers from "./imageSvgPngs/illustration-your-users.svg";
+import {
+  Blocks,
+  BlockImage,
+  BlockImagesTopBottom,
+  BlockContent,
+  BlockHeader,
+  BlockPara,
+  Image
+} from "./styledComponents";
 
-export const HuddleBody = () => {
+
+export const HuddleBody=()=> {
   return (
     <div>
+        <section>
+      <div>
         <Blocks>
           <BlockContent>
-            <BlockHeaders>Grow Together</BlockHeaders>
-            <BlockParas>
+            <BlockHeader>Grow Together</BlockHeader>
+            <BlockPara>
               Generate meaningful discussions with your audience and build a
               strong, loyal community. Think of the insightful conversations you
               miss out on with a feedback form.
-            </BlockParas>
+            </BlockPara>
           </BlockContent>
           <BlockImagesTopBottom>
-            <img
-              style={{ width: "370px" }}
+            <Image
               src={growingTogether}
               alt="blockImage1"
-            ></img>
+            ></Image>
           </BlockImagesTopBottom>
         </Blocks>
         <Blocks>
-          <BlockImages>
-            <img
-              style={{ width: "370px" }}
+          <BlockImage>
+            <Image
               src={flowingConvo}
               alt="blockImage2"
-            ></img>
-          </BlockImages>
+            ></Image>
+          </BlockImage>
           <BlockContent>
-            <BlockHeaders>Flowing Conversations</BlockHeaders>
-            <BlockParas>
+            <BlockHeader>Flowing Conversations</BlockHeader>
+            <BlockPara>
               You wouldn't paginate a conversation in real life, so why do it
               online? Our threads have just-in-time loading for a more natural
               flow.
-            </BlockParas>
+            </BlockPara>
           </BlockContent>
         </Blocks>
         <Blocks>
           <BlockContent>
-            <BlockHeaders>Your Users</BlockHeaders>
-            <BlockParas>
+            <BlockHeader>Your Users</BlockHeader>
+            <BlockPara>
               It takes no time at all to integrate Huddle with your app's
               authentication solution. This means, once signed in to your app,
               your users can start chatting immediately.
-            </BlockParas>
+            </BlockPara>
           </BlockContent>
           <BlockImagesTopBottom>
-            <img
-              style={{ width: "370px" }}
+            <Image
               src={yourUsers}
               alt="blockImage3"
-            ></img>
+            ></Image>
           </BlockImagesTopBottom>
         </Blocks>
     </div>
-  );
-};
+      </section>
+    </div>
+  )
+}
