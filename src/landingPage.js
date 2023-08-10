@@ -13,8 +13,11 @@ import yourUsers from "./imageSvgPngs/illustration-your-users.svg";
 import Mockups from "./imageSvgPngs/illustration-mockups.svg";
 
 const Div = styled.div`
-  height: 95dvh;
+  height: 90dvh;
   background-image: url(${desktopBackgroundImage});
+  background-repeat: no-repeat;
+  background-color: rgb(237, 250, 254);
+  margin-bottom: 10%;
 `;
 const DivHead = styled.header`
   height: 17dvh;
@@ -22,13 +25,14 @@ const DivHead = styled.header`
   justify-content: space-between;
 `;
 const LogoImage = styled.img`
-  width: 170px;
+  width: 190px;
 `;
 const BodyImage = styled.img`
-  width: 650px;
+  margin-top: 3%;
+  width: 80%;
 `;
 const DivBody = styled.section`
-  height: 900px;
+  height: 600px;
   display: flex;
   justify-content: space-around;
 `;
@@ -41,20 +45,105 @@ const DivFlex = styled.div`
 `;
 
 const Content = styled.h1`
-  font-size: 40px;
+  font-size: 42px;
+  font-weight: 700;
 `;
 
 const Blocks = styled.div`
-  height: 300px;
+  height: 400px;
   display: flex;
-  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 85%;
-  margin: 5% 7% 1% 8%;
+  margin: 3% 8%;
 `;
+
+
+
 const Footer = styled.footer`
   height: 300px;
   display: flex;
+  background-color: rgb(0, 37, 46);
 `;
+
+const Button1 = styled.button`
+  height: 50px;
+  width: 200px;
+  border-radius: 25px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 2px lightgrey;
+  font-size: 15px;
+  font-weight: 600;
+`;
+const Button2 = styled.button`
+  height: 55px;
+  width: 250px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(254, 82, 192);
+  box-shadow: 1px 1px 2px lightgrey;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+`;
+
+const HomeData = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  max-width: 35%;
+  text-align: left;
+  margin-left: 6%;
+  margin-bottom: 4%;
+`;
+
+const Para1 = styled.p`
+  font-size: 18px;
+  max-width: 800px;
+  line-height: 25px;
+  margin-bottom: 7%;
+  margin-top: 0%;
+`;
+
+const BlockImages = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left:3%;
+`;
+
+const BlockImagesTopBottom = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left:20%;
+`;
+
+const BlockContent=styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content:center;
+  text-align: left;
+  margin-left:10%;
+`;
+
+const BlockHeaders=styled.h3`
+font-size:30px;
+font-weight:600px;
+`;
+const BlockParas=styled.p`
+font-size:17px;
+font-weight:600px;
+max-width:450px;
+`;
+
+const DivAbsolute=styled.div`
+height:500px
+width:40%;
+border:2px solid black;
+`;
+
 export const LandingPage = () => {
   return (
     <div>
@@ -65,19 +154,19 @@ export const LandingPage = () => {
           </DivFlex>
           <div></div>
           <DivFlex>
-            <button>Try it Free</button>
+            <Button1>Try it Free</Button1>
           </DivFlex>
         </DivHead>
         <DivBody>
-          <div style={{ width: "450px" }}>
+          <HomeData>
             <Content>Build The Community Your Fans Will Love</Content>
-            <p style={{ fontSize: "18px" }}>
+            <Para1>
               Huddle re-imagines the way we build communities. You have a voice,
               but so does your audience. Create connections with your users as
               you engage in genuine discussion.
-            </p>
-            <button>Get Started For Free</button>
-          </div>
+            </Para1>
+            <Button2>Get Started For Free</Button2>
+          </HomeData>
           <div>
             <BodyImage src={Mockups} alt="mainIMage"></BodyImage>
           </div>
@@ -85,48 +174,51 @@ export const LandingPage = () => {
       </Div>
       <section>
         <Blocks>
-          <div>
-            <h3>Grow Together</h3>
-            <p>
+          <BlockContent>
+            <BlockHeaders>Grow Together</BlockHeaders>
+            <BlockParas>
               Generate meaningful discussions with your audience and build a
               strong, loyal community. Think of the insightful conversations you
               miss out on with a feedback form.
-            </p>
-          </div>
-          <div>
-            <img style={{width:'350px'}} src={growingTogether} alt="blockImage1"></img>
-          </div>
+            </BlockParas>
+          </BlockContent>
+          <BlockImagesTopBottom>
+            <img style={{width: '370px'}} src={growingTogether} alt="blockImage1"></img>
+          </BlockImagesTopBottom>
         </Blocks>
         <Blocks>
-          <div>
-            <img style={{width:'350px'}} src={flowingConvo} alt="blockImage2"></img>
-          </div>
-          <div>
-            <h3>Flowing Conversations</h3>
-            <p>
+          <BlockImages>
+            <img style={{width: '370px'}}  src={flowingConvo} alt="blockImage2"></img>
+          </BlockImages>
+          <BlockContent>
+            <BlockHeaders>Flowing Conversations</BlockHeaders>
+            <BlockParas>
               You wouldn't paginate a conversation in real life, so why do it
               online? Our threads have just-in-time loading for a more natural
               flow.
-            </p>
-          </div>
+            </BlockParas>
+          </BlockContent>
         </Blocks>
         <Blocks>
-          <div>
-            <h3>Your Users</h3>
-            <p>
+          <BlockContent>
+            <BlockHeaders>Your Users</BlockHeaders>
+            <BlockParas>
               It takes no time at all to integrate Huddle with your app's
               authentication solution. This means, once signed in to your app,
               your users can start chatting immediately.
-            </p>
-          </div>
-          <div>
-            <img style={{width:'350px'}} src={yourUsers} alt="blockImage3"></img>
-          </div>
+            </BlockParas>
+          </BlockContent>
+          <BlockImagesTopBottom>
+            <img style={{width: '370px'}}  src={yourUsers} alt="blockImage3"></img>
+          </BlockImagesTopBottom>
         </Blocks>
       </section>
+      <DivAbsolute>
+        <h1>Ready To Build Your Community?</h1>
+        <Button2>Get Started For Free</Button2>
+      </DivAbsolute>
       <Footer>
         <div>
-          {" "}
           <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
