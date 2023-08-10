@@ -1,19 +1,30 @@
 import { styled } from "styled-components";
 import desktopBackgroundImage from "./imageSvgPngs/bg-hero-desktop.svg";
+import mobileBackgroundImage from "./imageSvgPngs/bg-hero-mobile.svg";
+
 export const Div = styled.div`
   height: 95dvh;
   background-image: url(${desktopBackgroundImage});
   background-repeat: no-repeat;
   background-color: rgb(237, 250, 254);
   margin-bottom: 10%;
+  @media (max-width:400px){
+    background-image: url(${mobileBackgroundImage});
+  }
 `;
 export const DivHead = styled.header`
   height: 17dvh;
   display: flex;
   justify-content: space-between;
+  @media (max-width:400px){
+    justify-content: space-around;
+  }
 `;
 export const LogoImage = styled.img`
   width: 190px;
+  @media (max-width: 400px){
+    width:100px
+  }
 `;
 export const BodyImage = styled.img`
   margin-top: 3%;
@@ -23,6 +34,9 @@ export const DivBody = styled.section`
   height: 600px;
   display: flex;
   justify-content: space-around;
+  @media (max-width: 400px){
+    flex-direction:column;
+  }
 `;
 
 export const DivFlex = styled.div`
@@ -35,6 +49,10 @@ export const DivFlex = styled.div`
 export const Content = styled.h1`
   font-size: 42px;
   font-weight: 700;
+  @media (max-width: 400px) {
+    font-size: 22px;
+    font-weight: 500;
+    }
 `;
 
 export const Blocks = styled.div`
@@ -149,18 +167,31 @@ export const Footer = styled.footer`
   margin-top: 13%;
   height: 480px;
   display: flex;
+  justify-content: space-evenly;
   background-color: rgb(0, 37, 46);
   color: white;
 `;
 
 export const FooterDiv1 = styled.div`
+margin-top:12%;
+  height:250px
   display: flex;
   flex-direction: column;
+  align-items:flex-end;
+  justify-content:center;
   justify-content: space-evenly;
+  line-height:25px;
+`;
+export const FooterDiv2 = styled.div`
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 42px;
 `;
 
 export const ParaWidth = styled.p`
-  max-width: 300px;
+  max-width: 340px;
 `;
 export const HoverAbove = styled.div`
   display: flex;

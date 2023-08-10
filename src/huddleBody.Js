@@ -1,5 +1,4 @@
 import React from 'react'
-import { styled } from 'styled-components';
 import flowingConvo from "./imageSvgPngs/illustration-flowing-conversation.svg";
 import growingTogether from "./imageSvgPngs/illustration-grow-together.svg";
 import yourUsers from "./imageSvgPngs/illustration-your-users.svg";
