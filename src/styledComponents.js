@@ -8,7 +8,7 @@ export const Div = styled.div`
   background-repeat: no-repeat;
   background-color: rgb(237, 250, 254);
   margin-bottom: 10%;
-  @media (max-width:400px){
+  @media (max-width: 400px) {
     background-image: url(${mobileBackgroundImage});
   }
 `;
@@ -16,26 +16,33 @@ export const DivHead = styled.header`
   height: 17dvh;
   display: flex;
   justify-content: space-between;
-  @media (max-width:400px){
-    justify-content: space-around;
+  @media (max-width: 400px) {
+    height: 10dvh;
+    justify-content: space-evenly;
   }
 `;
 export const LogoImage = styled.img`
   width: 190px;
-  @media (max-width: 400px){
-    width:100px
+  @media (max-width: 400px) {
+    width: 100px;
   }
 `;
 export const BodyImage = styled.img`
   margin-top: 3%;
   width: 80%;
+  @media (max-width: 400px) {
+    width: 80%;
+    margin-left: 15%;
+  }
 `;
 export const DivBody = styled.section`
   height: 600px;
   display: flex;
   justify-content: space-around;
-  @media (max-width: 400px){
-    flex-direction:column;
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: center;
+  justify-content: center;
   }
 `;
 
@@ -50,9 +57,9 @@ export const Content = styled.h1`
   font-size: 42px;
   font-weight: 700;
   @media (max-width: 400px) {
-    font-size: 22px;
-    font-weight: 500;
-    }
+    font-size: 29px;
+    font-weight: 600;
+  }
 `;
 
 export const Blocks = styled.div`
@@ -62,6 +69,12 @@ export const Blocks = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 85%;
   margin: 3% 8%;
+  @media (max-width: 400px) {
+    font-weight: 500;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Button1 = styled.button`
@@ -73,6 +86,12 @@ export const Button1 = styled.button`
   box-shadow: 1px 1px 2px lightgrey;
   font-size: 15px;
   font-weight: 600;
+  @media (max-width: 400px) {
+    font-weight: 700;
+    height: 27px;
+    font-size: 10px;
+    width: 120px;
+  }
 `;
 export const Button2 = styled.button`
   height: 55px;
@@ -84,6 +103,12 @@ export const Button2 = styled.button`
   font-size: 15px;
   font-weight: 600;
   color: white;
+  @media (max-width: 400px) {
+    font-size: 15px;
+    font-weight: 600;
+    height: 40px;
+    width: 250px;
+  }
 `;
 
 export const HomeData = styled.div`
@@ -95,6 +120,11 @@ export const HomeData = styled.div`
   text-align: left;
   margin-left: 6%;
   margin-bottom: 4%;
+  @media (max-width: 400px) {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
 `;
 
 export const Para1 = styled.p`
@@ -109,6 +139,8 @@ export const BlockImage = styled.div`
   display: flex;
   align-items: center;
   margin-left: 3%;
+  @media (max-width: 400px) {
+  }
 `;
 
 export const BlockImagesTopBottom = styled.div`
@@ -201,4 +233,7 @@ export const HoverAbove = styled.div`
 `;
 export const Image = styled.img`
   width: 370px;
+  @media (max-width: 400px) {
+    width: 200px;
+  }
 `;

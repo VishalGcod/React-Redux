@@ -23,6 +23,8 @@ export const MainPage = () => {
             <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
           </DivFlex>
           <div></div>
+          <div></div>
+          <div></div>
           <DivFlex>
             <Button1>Try it Free</Button1>
           </DivFlex>
