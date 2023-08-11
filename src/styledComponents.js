@@ -159,6 +159,24 @@ export const Blocks = styled.div`
     font-weight: 300;
     height: 500px;
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+`;
+
+export const Block2 = styled.div`
+  height: 400px;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 85%;
+  margin: 3% 8%;
+  @media (max-width: 375px) {
+    margin: 8% 8%;
+    font-weight: 300;
+    height: 500px;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -353,4 +371,27 @@ export const MediaIcons = styled.div`
     align-items: center;
     justify-content: center;
   }
+`;
+
+export const RootDiv = styled.div`
+  display: flex;
+`;
+export const ImageLogos = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+
+export const ContactImagesLocation = styled.img`
+  margin-right: 20px;
+  margin-top: 10px;
+`;
+export const ContactImagesPhone = styled.img`
+  margin-right: 20px;
+  margin-top: 20px;
+`;
+
+export const ContactImagesMail = styled.img`
+  margin-right: 20px;
+  margin-top: 0px;
 `;

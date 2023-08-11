@@ -4,6 +4,7 @@ import growingTogether from "./imageSvgPngs/illustration-grow-together.svg";
 import yourUsers from "./imageSvgPngs/illustration-your-users.svg";
 import {
   Blocks,
+  Block2,
   BlockImage,
   BlockImagesTopBottom,
   BlockContent,
@@ -33,7 +34,7 @@ export const HuddleBody=()=> {
             ></Image>
           </BlockImagesTopBottom>
         </Blocks>
-        <Blocks>
+        <Block2>
           <BlockImage>
             <Image
               src={flowingConvo}
@@ -48,7 +49,7 @@ export const HuddleBody=()=> {
               flow.
             </BlockPara>
           </BlockContent>
-        </Blocks>
+        </Block2>
         <Blocks>
           <BlockContent>
             <BlockHeader>Your Users</BlockHeader>

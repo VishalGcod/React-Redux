@@ -22,6 +22,8 @@ import { styled } from "styled-components";
 import { CiFacebook, CiYoutube, CiTwitter } from "react-icons/ci";
 
 export const HuddleFooter = () => {
+  const Details1=['About Us','What We Do','FAQ']
+  const Details2=['Career','Blog','Contact Us']
   return (
     <div>
       <HoverAbove>
@@ -46,14 +48,14 @@ export const HuddleFooter = () => {
           </p>
         </FooterDiv1>
         <FooterDiv2>
-          <span>About Us</span>
-          <span>What We Do</span>
-          <span>FAQ</span>
+          {Details1.map((e)=>(
+            <span>{e}</span>
+          ))}
         </FooterDiv2>
         <FooterDiv2>
-          <span>Career</span>
-          <span>Blog</span>
-          <span>Contact Us</span>
+        {Details2.map((e)=>(
+            <span>{e}</span>
+          ))}
         </FooterDiv2>
         <SocialMedias>
         <MediaIcons>
