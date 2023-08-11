@@ -7,8 +7,8 @@ import {
   BlockImage,
   BlockImagesTopBottom,
   BlockContent,
-  BlockHeader,
   BlockPara,
+  BlockHeader,
   Image
 } from "./styledComponents";
 
@@ -17,7 +17,6 @@ export const HuddleBody=()=> {
   return (
     <div>
         <section>
-      <div>
         <Blocks>
           <BlockContent>
             <BlockHeader>Grow Together</BlockHeader>
@@ -66,7 +65,6 @@ export const HuddleBody=()=> {
             ></Image>
           </BlockImagesTopBottom>
         </Blocks>
-    </div>
       </section>
     </div>
   )

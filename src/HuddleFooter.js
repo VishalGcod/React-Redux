@@ -11,38 +11,38 @@ import {
   FooterDiv2,
   HoverAbove,
   ParaWidth,
+  DivAbsoluteText,
+  HudLogo,
+  ContactImages,
+  Rights,
+  SocialMedias,
+  MediaIcons
 } from "./styledComponents";
 import { styled } from "styled-components";
 import { CiFacebook, CiYoutube, CiTwitter } from "react-icons/ci";
-
-// const socialMedia=styled.div`
-// display:flex;
-// justify-content:space-between;
-// margin-top:40%;
-// `;
 
 export const HuddleFooter = () => {
   return (
     <div>
       <HoverAbove>
         <DivAbsolute>
-          <h1>Ready To Build Your Community?</h1>
+          <DivAbsoluteText>Ready To Build Your Community?</DivAbsoluteText>
           <Button3>Get Started For Free</Button3>
         </DivAbsolute>
       </HoverAbove>
       <Footer>
         <FooterDiv1>
-          <img src={hudLogo2} alt="hudlelogo" style={{ width: "210px" }}></img>
+          <HudLogo src={hudLogo2} alt="hudlelogo"></HudLogo>
           <ParaWidth>
-            <img src={locationImg} alt="locationimage" style={{marginRight:'5%'}}></img>
+            <ContactImages src={locationImg} alt="locationimage"></ContactImages>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua
           </ParaWidth>
           <p>
-            <img src={phoneImg} alt="phonelogo" style={{marginRight:'5%'}}></img> +1-543-123-4567
+            <ContactImages src={phoneImg} alt="phonelogo"></ContactImages> +1-543-123-4567
           </p>
           <p>
-            <img src={emailIcon} alt="emaillogo" style={{marginRight:'5%'}}></img> example@huddle.com
+            <ContactImages src={emailIcon} alt="emaillogo"></ContactImages> example@huddle.com
           </p>
         </FooterDiv1>
         <FooterDiv2>
@@ -55,21 +55,20 @@ export const HuddleFooter = () => {
           <span>Blog</span>
           <span>Contact Us</span>
         </FooterDiv2>
-        <div  style={{marginTop:'15%'}}>
-        <div>
+        <SocialMedias>
+        <MediaIcons>
           <span>
             <CiFacebook style={{fontSize:'30px'}} />
           </span>
           <span>
-            <CiTwitter style={{fontSize:'30px'}}/>{" "}
+            <CiTwitter style={{fontSize:'30px'}}/>
           </span>
           <span>
-            {" "}
             <CiYoutube style={{fontSize:'30px'}}/>
           </span>
-        </div>
-        <div style={{fontSize:'12px', marginTop:'70%'}}>@Copyrights 2018 Huddle.All Rights Reserved</div>
-        </div>
+        </MediaIcons>
+        <Rights>@Copyrights 2018 Huddle.All Rights Reserved</Rights>
+        </SocialMedias>
       </Footer>
     </div>
   );

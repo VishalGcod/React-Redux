@@ -13,6 +13,7 @@ import {
   Button2,
   Para1,
   HomeData,
+  BodyImageDiv
 } from "./styledComponents";
 export const MainPage = () => {
   return (
@@ -39,9 +40,9 @@ export const MainPage = () => {
             </Para1>
             <Button2>Get Started For Free</Button2>
           </HomeData>
-          <div>
+          <BodyImageDiv>
             <BodyImage src={Mockups} alt="mainIMage"></BodyImage>
-          </div>
+          </BodyImageDiv>
         </DivBody>
       </Div>
     </div>
