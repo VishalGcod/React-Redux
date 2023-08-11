@@ -83,9 +83,9 @@ export const Button1 = styled.button`
   font-size: 15px;
   font-weight: 600;
   &:hover {
-    opacity:0.7;
+    opacity: 0.7;
     box-shadow: 2px 2px 3px lightgrey;
-    }
+  }
   @media (max-width: 375px) {
     font-weight: 700;
     height: 25px;
@@ -105,8 +105,8 @@ export const Button2 = styled.button`
   font-weight: 600;
   color: white;
   &:hover {
-    opacity:0.7;
-    }
+    opacity: 0.7;
+  }
   @media (max-width: 375px) {
     font-size: 15px;
     font-weight: 600;
@@ -201,13 +201,12 @@ export const BlockContent = styled.div`
   margin-left: 10%;
   @media (max-width: 375px) {
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-left: 0%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 0%;
   }
-
 `;
 
 export const BlockHeader = styled.h3`
@@ -221,7 +220,7 @@ export const BlockHeader = styled.h3`
   }
 `;
 export const BlockPara = styled.p`
-  color:rgb(140, 138, 138);
+  color: rgb(140, 138, 138);
   font-size: 17px;
   font-weight: 600px;
   max-width: 450px;
@@ -229,13 +228,12 @@ export const BlockPara = styled.p`
     font-size: 14px;
     font-weight: 400px;
     max-width: 260px;
-
   }
 `;
 
 export const Footer = styled.footer`
   margin-top: 13%;
-  height: 480px;
+  height: 550px;
   display: flex;
   justify-content: space-evenly;
   background-color: rgb(0, 37, 46);
@@ -275,7 +273,10 @@ export const FooterDiv2 = styled.div`
 `;
 
 export const ParaWidth = styled.p`
-  max-width: 340px;
+  max-width: 300px;
+  @media (max-width: 375px) {
+    max-width: 290px;
+  }
 `;
 export const HoverAbove = styled.div`
   display: flex;
@@ -324,8 +325,8 @@ export const Button3 = styled.button`
   font-weight: 600;
   color: white;
   &:hover {
-    opacity:0.7;
-    }
+    opacity: 0.7;
+  }
   @media (max-width: 375px) {
     height: 38px;
     width: 200px;
@@ -372,26 +373,11 @@ export const MediaIcons = styled.div`
     justify-content: center;
   }
 `;
-
-export const RootDiv = styled.div`
-  display: flex;
-`;
-export const ImageLogos = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
-
 export const ContactImagesLocation = styled.img`
-  margin-right: 20px;
-  margin-top: 10px;
-`;
-export const ContactImagesPhone = styled.img`
-  margin-right: 20px;
+  height: 23px;
   margin-top: 20px;
-`;
-
-export const ContactImagesMail = styled.img`
   margin-right: 20px;
-  margin-top: 0px;
+`;
+export const FooterAddress = styled.div`
+  display: flex;
 `;

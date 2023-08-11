@@ -16,7 +16,9 @@ import {
   ContactImages,
   Rights,
   SocialMedias,
-  MediaIcons
+  MediaIcons,
+  ContactImagesLocation,
+  FooterAddress
 } from "./styledComponents";
 import { styled } from "styled-components";
 import { CiFacebook, CiYoutube, CiTwitter } from "react-icons/ci";
@@ -35,11 +37,13 @@ export const HuddleFooter = () => {
       <Footer>
         <FooterDiv1>
           <HudLogo src={hudLogo2} alt="hudlelogo"></HudLogo>
+          <FooterAddress>
+          <ContactImagesLocation src={locationImg} alt="locationimage"></ContactImagesLocation>
           <ParaWidth>
-            <ContactImages src={locationImg} alt="locationimage"></ContactImages>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua
           </ParaWidth>
+          </FooterAddress>
           <p>
             <ContactImages src={phoneImg} alt="phonelogo"></ContactImages> +1-543-123-4567
           </p>
