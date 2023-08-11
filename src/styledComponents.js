@@ -82,6 +82,10 @@ export const Button1 = styled.button`
   box-shadow: 1px 1px 2px lightgrey;
   font-size: 15px;
   font-weight: 600;
+  &:hover {
+    opacity:0.7;
+    box-shadow: 2px 2px 3px lightgrey;
+    }
   @media (max-width: 375px) {
     font-weight: 700;
     height: 25px;
@@ -100,6 +104,9 @@ export const Button2 = styled.button`
   font-size: 15px;
   font-weight: 600;
   color: white;
+  &:hover {
+    opacity:0.7;
+    }
   @media (max-width: 375px) {
     font-size: 15px;
     font-weight: 600;
@@ -298,6 +305,9 @@ export const Button3 = styled.button`
   font-size: 15px;
   font-weight: 600;
   color: white;
+  &:hover {
+    opacity:0.7;
+    }
   @media (max-width: 375px) {
     height: 38px;
     width: 200px;
