@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import hudLogo from "./imageSvgPngs/logo.svg";
 import Mockups from "./imageSvgPngs/illustration-mockups.svg";
 import {
@@ -13,9 +13,14 @@ import {
   Button2,
   Para1,
   HomeData,
-  BodyImageDiv
+  BodyImageDiv,
 } from "./styledComponents";
 export const MainPage = () => {
+  const [dropDown, setDropDown] = useState(false);
+  const DropDown = () => {
+    setDropDown(!dropDown);
+  };
+
   return (
     <div>
       <Div>
@@ -27,8 +32,15 @@ export const MainPage = () => {
           <div></div>
           <div></div>
           <DivFlex>
-            <Button1>Try it Free</Button1>
+            <Button1 onClick={DropDown}>Try it Free</Button1>
           </DivFlex>
+          {dropDown && (
+            <section>
+              <div>Title1</div>
+              <div>Title2</div>
+              <div>Title3</div>
+            </section>
+          )}
         </DivHead>
         <DivBody>
           <HomeData>
