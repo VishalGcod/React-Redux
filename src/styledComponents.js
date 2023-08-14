@@ -74,6 +74,7 @@ export const BodyImageDiv = styled.div`
 `;
 
 export const Button1 = styled.button`
+cursor:pointer;
   height: 50px;
   width: 200px;
   border-radius: 25px;
@@ -95,6 +96,7 @@ export const Button1 = styled.button`
   }
 `;
 export const Button2 = styled.button`
+cursor:pointer;
   height: 55px;
   width: 250px;
   border-radius: 30px;
@@ -315,6 +317,7 @@ export const DivAbsoluteText = styled.h1`
 `;
 
 export const Button3 = styled.button`
+cursor:pointer;
   height: 75px;
   width: 350px;
   border-radius: 40px;
