@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 import "./index.css";
 import { Select } from "antd";
+import { styled } from "styled-components";
+import { Button } from "antd";
+
+export const DivList = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+`;
+export const Form = styled.form`
+  display: flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+`;
 
 export const Dropdown2 = () => {
   const [dataItems, setDataItems] = useState([]);
@@ -33,7 +47,7 @@ export const Dropdown2 = () => {
     const newFormData = { ...formData };
     setDataItems([...dataItems, newFormData]);
     setFormData({
-        label: "",
+      label: "",
       lname: "",
       mail: "",
     });
@@ -48,12 +62,12 @@ export const Dropdown2 = () => {
 
   return (
     <div>
-      <h1>Assign Manager New Try</h1>
+      <h1>Assign New Manager</h1>
       <Select
         onChange={handleChange}
         showSearch
-        style={{ width: 200 }}
-        placeholder="Search to Select"
+        style={{ width: 450 }}
+        placeholder="Search or Select"
         optionFilterProp="children"
         filterOption={(input, option) => option.label.includes(input)}
         filterSort={(optionA, optionB) =>
@@ -91,23 +105,27 @@ export const Dropdown2 = () => {
         ]}
       />
       {dataItems.map((item, index) => (
-        <div key={index}>
-          <p>First Name: {item.label}</p>
-          <p>Last Name: {item.lname}</p>
-          <p>Email: {item.mail}</p>
+        <DivList key={index}>
+          <p> {item.label + " "} </p>
+          <p> {item.lname} </p>
+          <p> {item.mail} </p>
           {item.label === "Add New Manager" && (
             <div key={index}>
-              <p>First Name: {item.label}</p>
-              <p>Last Name: {item.lname}</p>
-              <p>Email: {item.mail}</p>
+              <p> {item.label} </p>
+              <p> {item.lname} </p>
+              <p> {item.mail} </p>
             </div>
           )}
-          <button onClick={() => handleDelete(index)}>Del</button>
-        </div>
+          <DivList>
+            <Button type="Primary" danger onClick={() => handleDelete(index)}>
+              Delete
+            </Button>
+          </DivList>
+        </DivList>
       ))}
 
       {formVis && (
-        <form onSubmit={handleFormSubmit}>
+        <Form onSubmit={handleFormSubmit}>
           <input
             onChange={inputInformations}
             value={formData.label}
@@ -133,7 +151,7 @@ export const Dropdown2 = () => {
             placeholder="enter manager email"
           />
           <button type="submit">Submit</button>
-        </form>
+        </Form>
       )}
     </div>
   );

@@ -16,10 +16,11 @@ import {
   HomeData,
   BodyImageDiv,
 } from "./styledComponents";
-export const MainPage = () => {
+export const MainPage = ({setBtnLog,btnLog}) => {
   const [dropDown, setDropDown] = useState(false);
   const DropDown = () => {
     setDropDown(!dropDown);
+    setBtnLog(!btnLog)
   };
 
   return (

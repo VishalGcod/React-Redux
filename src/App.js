@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { LandingPage } from "./huddleLandingPage";
 import { Dropdown } from "./antDesignDropdown";
 import { Comp1, Comp2 } from "./ProtectedRoutePrac";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import { FormDrawer } from "./formDrawer";
 import { ProtectedRoute } from "./ProtectedRoutePrac";
-import { Dropdown2 } from "./newTryComp";
+import { DrawerView } from "./newDrawerPrac";
 
 function App() {
+  const[btnLog,setBtnLog]=useState(false)
   return (
     <div className="App">
       <Router>
@@ -16,11 +18,14 @@ function App() {
           <Link to='/comp2'>Login</Link>
         </div>
         <Routes>
-        <Route path="/" Component={LandingPage}></Route>
-        <Route path="/comp1" Component={Dropdown2}></Route>
+        <Route path="/" element={<LandingPage setBtnLog={setBtnLog} btnLog={btnLog}/> }></Route>
+        <Route element={<ProtectedRoute btnLog={btnLog}/>}>
+        <Route path="/comp1" Component={DrawerView}></Route>
         <Route path="/comp2" Component={Comp1}></Route>
+        </Route>
         </Routes>
       </Router>
+
     </div>
   );
 }

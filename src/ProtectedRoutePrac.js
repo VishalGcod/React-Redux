@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 export const Comp1 = () => {
   return <div>This is comp1</div>;
@@ -8,13 +8,9 @@ export const Comp2 = () => {
   return <div>This is comp2</div>;
 };
 
-export const ProtectedRoute = ({ auth, component: Component, ...rest }) => {
+export const ProtectedRoute = ({btnLog}) => {
+    let auth={'token':true}
   return (
-    <Route
-      {...rest}
-      render={(props) => {return  auth ? <Component {...props} />:
-       <Navigate to="/comp1"/>
-      }}
-    />
+    auth.token?<Outlet/>:<Navigate to='/'/>
   );
 };
