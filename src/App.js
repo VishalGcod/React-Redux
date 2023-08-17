@@ -17,10 +17,9 @@ function App() {
         <Routes>
         <Route path="/" Component={LandingPage}></Route>
         <Route path="/comp1" Component={Comp1}></Route>
-        <Route path="/comp2" Component={Comp2}></Route>
+        <Route path="/comp2" Component={Dropdown}></Route>
         </Routes>
       </Router>
-      <Dropdown/>
     </div>
   );
 }
