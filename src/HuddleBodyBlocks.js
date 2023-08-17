@@ -13,7 +13,6 @@ import {
   Image
 } from "./styledComponents";
 
-
 export const HuddleBody=()=> {
   return (
     <div>

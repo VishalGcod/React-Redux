@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import hudLogo from "./imageSvgPngs/logo.svg";
 import Mockups from "./imageSvgPngs/illustration-mockups.svg";
+import { Link } from "react-router-dom";
 import {
   Div,
   DivHead,
@@ -28,9 +29,6 @@ export const MainPage = () => {
           <DivFlex>
             <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
           </DivFlex>
-          <div></div>
-          <div></div>
-          <div></div>
           <DivFlex>
             <Button1 onClick={DropDown}>Try it Free</Button1>
           </DivFlex>
