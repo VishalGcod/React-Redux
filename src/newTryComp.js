@@ -6,7 +6,7 @@ export const Dropdown2 = () => {
   const [dataItems, setDataItems] = useState([]);
   const [formVis, setFormVis] = useState(false);
   const [formData, setFormData] = useState({
-    fname: "",
+    label: "",
     lname: "",
     mail: "",
   });
@@ -33,7 +33,7 @@ export const Dropdown2 = () => {
     const newFormData = { ...formData };
     setDataItems([...dataItems, newFormData]);
     setFormData({
-      fname: "",
+        label: "",
       lname: "",
       mail: "",
     });
@@ -96,8 +96,8 @@ export const Dropdown2 = () => {
           <p>Last Name: {item.lname}</p>
           <p>Email: {item.mail}</p>
           {item.label === "Add New Manager" && (
-            <div>
-              <p>First Name: {item.fname}</p>
+            <div key={index}>
+              <p>First Name: {item.label}</p>
               <p>Last Name: {item.lname}</p>
               <p>Email: {item.mail}</p>
             </div>
@@ -110,8 +110,8 @@ export const Dropdown2 = () => {
         <form onSubmit={handleFormSubmit}>
           <input
             onChange={inputInformations}
-            value={formData.fname}
-            name="fname"
+            value={formData.label}
+            name="label"
             type="text"
             required
             placeholder="enter manager first name"
