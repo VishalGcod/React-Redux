@@ -4,6 +4,7 @@ import { Dropdown } from "./antDesignDropdown";
 import { Comp1, Comp2 } from "./ProtectedRoutePrac";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoutePrac";
+import { Dropdown2 } from "./newTryComp";
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
         </div>
         <Routes>
         <Route path="/" Component={LandingPage}></Route>
-        <Route path="/comp1" Component={Comp1}></Route>
-        <Route path="/comp2" Component={Dropdown}></Route>
+        <Route path="/comp1" Component={Dropdown2}></Route>
+        <Route path="/comp2" Component={Comp1}></Route>
         </Routes>
       </Router>
     </div>

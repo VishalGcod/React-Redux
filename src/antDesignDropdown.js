@@ -11,6 +11,7 @@ export const Dropdown = () => {
     mail:"sampleMail@gmail.com",
   })
   const [formVis, setFormVis] = useState(false);
+  const [formArr,setFormArr]=useState([])
   const [formData,setFormData]=useState({
     fname:"",
     lname:"",
@@ -28,11 +29,12 @@ export const Dropdown = () => {
   const inputInformations=(e)=>{
     const {name,value}=e.target;
     console.log(objLables);
-    // setFormData({...formData,[name]:value,})
+    setFormData({...formData,[name]:value,})
   }
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
+    setFormArr([...formArr,formData])
     // console.log(formData);
     // console.log(lables);
     // setLables([...lables,formData])
@@ -45,8 +47,15 @@ export const Dropdown = () => {
     setLables(updatedDataItems);
   };
 
+  const clickToDeleteArr = (index) => {
+    const updateFormData = [...formArr];
+    updateFormData.splice(index, 1);
+    formArr(updateFormData);
+  };
+
   return (
     <div>
+        <h1>Assign Manager</h1>
       <Select
         onChange={handleChange}
         showSearch
@@ -64,26 +73,37 @@ export const Dropdown = () => {
           },
           {
             value: "2",
-            label: "Manager1",
+            label: "Jackey",
           },
           {
             value: "3",
-            label: "Manager2",
+            label: "Ezio",
           },
           {
             value: "4",
-            label: "Manager3",
+            label: "Micheale",
           },
           {
             value: "5",
-            label: "Manager4",
+            label: "David",
           },
         ]}
       />
       {lables.map((e, index) => (
-        <div>
-          <h1>{e}</h1>
+        <div key={index}>
+          <span>{e}</span><span></span>
+          <span>Jackson</span><span></span>
+          <span>Jackeychan.123@gmail.com</span><span></span>
           <button onClick={()=>clickToDelete(index)}>Del</button>
+        </div>
+      ))}
+
+      {formArr.map((e,index)=>(
+        <div key={index}>
+            <span>{e.fname}</span><span></span>
+            <span>{e.lname}</span><span></span>
+            <span>{e.mail}</span><span></span>
+            <button onClick={()=>clickToDeleteArr(index)}>Del</button>
         </div>
       ))}
 
