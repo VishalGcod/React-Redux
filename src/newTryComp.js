@@ -30,7 +30,7 @@ export const Dropdown2 = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const newFormData = { selectedLabel: "Add New Manager", ...formData };
+    const newFormData = { ...formData };
     setDataItems([...dataItems, newFormData]);
     setFormData({
       fname: "",
@@ -113,6 +113,7 @@ export const Dropdown2 = () => {
             value={formData.fname}
             name="fname"
             type="text"
+            required
             placeholder="enter manager first name"
           />
           <input
@@ -120,6 +121,7 @@ export const Dropdown2 = () => {
             value={formData.lname}
             name="lname"
             type="text"
+            required
             placeholder="enter manager last name"
           />
           <input
@@ -127,6 +129,7 @@ export const Dropdown2 = () => {
             value={formData.mail}
             name="mail"
             type="email"
+            required
             placeholder="enter manager email"
           />
           <button type="submit">Submit</button>
