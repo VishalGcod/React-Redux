@@ -19,8 +19,9 @@ import {
 export const MainPage = ({setBtnLog,btnLog}) => {
   const [dropDown, setDropDown] = useState(false);
   const DropDown = () => {
-    setDropDown(!dropDown);
+    // setDropDown(!dropDown);
     setBtnLog(!btnLog)
+    console.log(btnLog);
   };
 
   return (

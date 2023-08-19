@@ -9,7 +9,7 @@ export const Comp2 = () => {
 };
 
 export const ProtectedRoute = ({btnLog}) => {
-    let auth={'token':true}
+    let auth={'token':btnLog}
   return (
     auth.token?<Outlet/>:<Navigate to='/'/>
   );

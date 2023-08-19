@@ -3,10 +3,10 @@ import { MainPage } from "./huddleMainPage";
 import { HuddleFooter } from "./HuddleFooter";
 import { HuddleBody } from "./HuddleBodyBlocks";
 
-export const LandingPage = () => {
+export const LandingPage = ({btnLog, setBtnLog}) => {
   return (
     <div>
-      <MainPage/>
+      <MainPage btnLog={btnLog} setBtnLog={setBtnLog}/>
       <HuddleBody/>
       <HuddleFooter/>
     </div>
