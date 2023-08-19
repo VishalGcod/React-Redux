@@ -14,14 +14,14 @@ function App() {
       <Router>
        <div>
           <Link to='/'>Home</Link>
-          <Link to='/comp1'>About</Link>
-          <Link to='/comp2'>Login</Link>
+          <Link to='/drawer'>About</Link>
+          <Link to='/login'>Login</Link>
         </div>
         <Routes>
-        <Route path="/" element={<LandingPage setBtnLog={setBtnLog} btnLog={btnLog}/> }></Route>
+        <Route path="/" element={<LandingPage/> }></Route>
+        <Route path="/login" element={<Comp2 setBtnLog={setBtnLog} btnLog={btnLog}/> }></Route>
         <Route element={<ProtectedRoute btnLog={btnLog}/>}>
-        <Route path="/comp1" Component={DrawerView}></Route>
-        <Route path="/comp2" Component={Comp1}></Route>
+        <Route path="/drawer" Component={DrawerView}></Route>
         </Route>
         </Routes>
       </Router>
