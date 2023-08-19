@@ -30,7 +30,7 @@ export const MainPage = ({setBtnLog,btnLog}) => {
             <LogoImage src={hudLogo} alt="huddleLogo"></LogoImage>
           </DivFlex>
           <DivFlex>
-            <Button1 onClick={DropDown}>Try it Free</Button1>
+            <Button1 data-test="my-button" onClick={DropDown}>Try it Free</Button1>
           </DivFlex>
           {dropDown && (
             <section>

@@ -8,7 +8,7 @@ import { ProtectedRoute } from "./ProtectedRoutePrac";
 import { DrawerView } from "./newDrawerPrac";
 
 function App() {
-  const[btnLog,setBtnLog]=useState(false)
+  const[btnLog,setBtnLog]=useState(true)
   return (
     <div className="App">
       <Router>

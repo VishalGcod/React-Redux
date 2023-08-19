@@ -31,6 +31,7 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
     <Form.Item
       label="Username"
       name="username"
+      className="textInput"
       rules={[{ required: true, message: 'Please input your username!' }]}
     >
       <Input />

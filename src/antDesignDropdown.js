@@ -109,7 +109,7 @@ export const Dropdown = () => {
 
       {formVis && (
         <form onSubmit={handleFormSubmit}>
-          <input onChange={inputInformations} value={formData.fname} name="fname" type="text" placeholder="enter manager first name"></input>
+          <input id="input-name" onChange={inputInformations} value={formData.fname} name="fname" type="text" placeholder="enter manager first name"></input>
           <input onChange={inputInformations} value={formData.lname} name="lname" type="text" placeholder="enter manager last name"></input>
           <input onChange={inputInformations} value={formData.mail} name="mail" type="email" placeholder="enter manager email"></input>
           <button type="submit">Submit</button>
