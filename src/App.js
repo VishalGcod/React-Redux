@@ -10,7 +10,7 @@ import { styled } from "styled-components";
 
 export const Header=styled.div`display:flex; justify-content:space-around; height:7dvh; background-color:pink; align-items:center; font-size:20px; font-weight:700; `; 
 function App() {
-  const[btnLog,setBtnLog]=useState(false)
+  const[btnLog,setBtnLog]=useState(true)
   return (
     <div className="App">
       <Router>

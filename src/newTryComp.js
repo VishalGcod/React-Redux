@@ -3,6 +3,7 @@ import "./index.css";
 import { Select } from "antd";
 import { styled } from "styled-components";
 import { Button } from "antd";
+import { FormDrawer } from "./formDrawer";
 
 export const DivList = styled.div`
   display: flex;
@@ -18,47 +19,17 @@ export const Form = styled.form`
 
 export const Dropdown2 = () => {
   const [dataItems, setDataItems] = useState([]);
-  const [formVis, setFormVis] = useState(false);
-  const [formData, setFormData] = useState({
-    label: "",
-    lname: "",
-    mail: "",
-  });
+  const [open, setOpen] = useState(false);
 
   const handleChange = (e, options) => {
     if (options.label === "Add New Manager") {
-      setFormVis(true);
+      setOpen(!open)
     } else {
-      setFormVis(false);
       setDataItems([
         ...dataItems,
         { label: options.label, lname: options.lname, mail: options.mail },
       ]);
     }
-  };
-
-  const inputInformations = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const newFormData = { ...formData };
-    console.log(formData.label);
-    console.log(formData.lname);
-    dataItems.map((e)=>{
-      console.log(e);
-      console.log(e.label);
-      console.log(e.lname);
-    })
-    setDataItems([...dataItems, newFormData]);
-    setFormData({
-      label: "",
-      lname: "",
-      mail: "",
-    });
-    setFormVis(false);
   };
 
   const handleDelete = (index) => {
@@ -130,36 +101,7 @@ export const Dropdown2 = () => {
           </DivList>
         </DivList>
       ))}
-
-      {formVis && (
-        <Form onSubmit={handleFormSubmit}>
-          <input
-            onChange={inputInformations}
-            value={formData.label}
-            name="label"
-            type="text"
-            required
-            placeholder="enter manager first name"
-          />
-          <input
-            onChange={inputInformations}
-            value={formData.lname}
-            name="lname"
-            type="text"
-            required
-            placeholder="enter manager last name"
-          />
-          <input
-            onChange={inputInformations}
-            value={formData.mail}
-            name="mail"
-            type="email"
-            required
-            placeholder="enter manager email"
-          />
-          <button type="submit">Submit</button>
-        </Form>
-      )}
+      <FormDrawer setOpen={setOpen} open={open} dataItems={dataItems} setDataItems={setDataItems}/>
     </div>
   );
 };

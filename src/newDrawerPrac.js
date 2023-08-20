@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
 import { Button, Drawer, Radio, Space } from 'antd';
-import { Select } from "antd";
 import { Dropdown2 } from './newTryComp';
 // import  { DrawerProps } from "antd/es/drawer";
 

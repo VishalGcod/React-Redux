@@ -47,12 +47,10 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
       name="username"
       className="textInput"
       value="vishal"
-      placeHolder="enter name"
       rules={[{ required: true, message: 'Please input your username!' }]}
     >
       <Input />
     </Form.Item>
-
     <Form.Item
     id="password"
       label="Password"
