@@ -6,17 +6,19 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // import { FormDrawer } from "./formDrawer";
 import { ProtectedRoute } from "./ProtectedRoutePrac";
 import { DrawerView } from "./newDrawerPrac";
+import { styled } from "styled-components";
 
+export const Header=styled.div`display:flex; justify-content:space-around; height:7dvh; background-color:pink; align-items:center; font-size:20px; font-weight:700; `; 
 function App() {
-  const[btnLog,setBtnLog]=useState(true)
+  const[btnLog,setBtnLog]=useState(false)
   return (
     <div className="App">
       <Router>
-       <div>
+       <Header>
           <Link to='/'>Home</Link>
           <Link to='/drawer'>About</Link>
           <Link to='/login'>Login</Link>
-        </div>
+        </Header>
         <Routes>
         <Route path="/" element={<LandingPage/> }></Route>
         <Route path="/login" element={<Comp2 setBtnLog={setBtnLog} btnLog={btnLog}/> }></Route>

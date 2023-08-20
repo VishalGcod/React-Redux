@@ -1,6 +1,4 @@
-// import React from "react";
-// import { Comp2 } from "../../src/ProtectedRoutePrac"
-// import { mount } from 'cypress/react18'
+
 describe('Validating Login Form', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
@@ -16,11 +14,33 @@ describe('Validating Login Form', () => {
     it("Check for form input",()=>{
       cy.get('#input-name')
     })
-    it.only("Check for input value",()=>{
+    it("Check for input values",()=>{
       cy.get('#input-name').type("vishal")
-      cy.get('#input-name').type("vishal12334556677899")
+      cy.get('#input-name').type("vishal1233455667789")
       cy.get('#input-pass').type("123")
       cy.get('#submit-button').click()
+    })
+    it("Check for correct input value",()=>{
       cy.visit('http://localhost:3000/login')
+      cy.get('.textInput').type("vishal")
+      cy.get('.passwordInput').type("123")
+      cy.get('.subBtn').click() 
+      cy.url().should("include","http://localhost:3000")
+    })
+    it("Check for input value in wrong url",()=>{
+      cy.get('.textInput').type("vishal")
+      cy.get('.passwordInput').type("12345")
+      cy.get('.subBtn').click() 
+    })
+    it("Check for input value",()=>{
+      cy.visit('http://localhost:3000/login')
+      cy.get('.textInput').should("exist")
+      cy.get('.passwordInput').should("have.value")
+      cy.get('.subBtn').click() 
+    })
+    it.only("Check for input value",()=>{
+      cy.visit('http://localhost:3000/login')
+      cy.get('.textInput').type("vishal")
+      cy.get('.textInput').should("have.value","vishal")
     })
 })

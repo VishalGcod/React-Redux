@@ -45,6 +45,13 @@ export const Dropdown2 = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const newFormData = { ...formData };
+    console.log(formData.label);
+    console.log(formData.lname);
+    dataItems.map((e)=>{
+      console.log(e);
+      console.log(e.label);
+      console.log(e.lname);
+    })
     setDataItems([...dataItems, newFormData]);
     setFormData({
       label: "",

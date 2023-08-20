@@ -1,7 +1,13 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { Button, Checkbox, Form, Input } from 'antd';
+import { styled } from "styled-components";
 
+export const DivForm=styled.div`
+display:grid;
+place-items:center;
+height:80dvh;
+`;
 
 export const Comp1 = () => {
   return <div>This is comp1</div>;
@@ -11,15 +17,22 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    console.log(values.username);
-    console.log(values.password);
     if(values.username=='vishal' && values.password=='123'){
       setBtnLog(!btnLog)
     }
+    else{
+      alert("invalid username or password")
+    }
+  }
+  const btnUnsubscribe=()=>{
+     if(btnLog==true){
+      setBtnLog(!btnLog)
+     }
   }
 
   return (
-  <Form
+    <DivForm>
+      <Form
     name="basic"
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
@@ -29,17 +42,21 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
     autoComplete="off"
   >
     <Form.Item
+    id="username"
       label="Username"
       name="username"
       className="textInput"
+      value="vishal"
       rules={[{ required: true, message: 'Please input your username!' }]}
     >
       <Input />
     </Form.Item>
 
     <Form.Item
+    id="password"
       label="Password"
       name="password"
+      className="passwordInput"
       rules={[{ required: true, message: 'Please input your password!' }]}
     >
       <Input.Password />
@@ -53,18 +70,23 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
       <Checkbox>Remember me</Checkbox>
     </Form.Item>
 
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-      <Button type="primary" htmlType="submit">
-        Submit
+    <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
+      <Button className="subBtn" type="primary" htmlType="submit">
+        Login
+      </Button>
+      <span></span>
+      <Button className="unSubBtn" type="primary" onClick={btnUnsubscribe} >
+        Logout
       </Button>
     </Form.Item>
   </Form>
+  </DivForm>
 );
 };
 
 export const ProtectedRoute = ({btnLog}) => {
     let auth={'token':btnLog}
   return (
-    auth.token?<Outlet/>:<Navigate to='/'/>
+    auth.token?<Outlet/>:<Navigate to='/login'/>
   );
 };
