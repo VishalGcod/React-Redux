@@ -66,7 +66,7 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
       valuePropName="checked"
       wrapperCol={{ offset: 8, span: 16 }}
     >
-      <Checkbox>Remember me</Checkbox>
+      <Checkbox>name: vishal pass: 123</Checkbox>
     </Form.Item>
 
     <Form.Item wrapperCol={{ offset: 10, span: 16 }}>

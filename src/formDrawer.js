@@ -70,12 +70,17 @@ export const FormDrawer= ({setOpen,open,setDataItems,dataItems}) => {
     const newFormData = { ...formData };
     console.log(formData.label);
     console.log(formData.lname);
+    const check=dataItems.find((e)=>e.label === formData.label && e.lname === formData.lname )
+    if(check){
+    alert("user already present");
+    }else{
     setDataItems([...dataItems, newFormData]);
     setFormData({
       label: "",
       lname: "",
       mail: "",
     });
+  }
   };
 
   return (
