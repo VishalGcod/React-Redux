@@ -16,6 +16,7 @@ describe('Validating Login Form', () => {
     })
     it("Check for input values",()=>{
       cy.get('#input-name').type("vishal")
+      cy.get('#input-name').should("have.value","vishal")
       cy.get('#input-name').type("vishal1233455667789")
       cy.get('#input-pass').type("123")
       cy.get('#submit-button').click()
@@ -30,17 +31,29 @@ describe('Validating Login Form', () => {
     it("Check for input value in wrong url",()=>{
       cy.get('.textInput').type("vishal")
       cy.get('.passwordInput').type("12345")
-      cy.get('.subBtn').click() 
+    })
+    it("Check for password having value",()=>{
+      cy.visit('http://localhost:3000/login')
+      cy.get('.passwordInput').should("have.value")
     })
     it("Check for input value",()=>{
       cy.visit('http://localhost:3000/login')
       cy.get('.textInput').should("exist")
-      cy.get('.passwordInput').should("have.value")
+      cy.get('.textInput').should("have.value")
+    })
+    it("Check for submit without values",()=>{
+      cy.visit('http://localhost:3000/login')
       cy.get('.subBtn').click() 
     })
-    it.only("Check for input value",()=>{
-      cy.visit('http://localhost:3000/login')
-      cy.get('.textInput').type("vishal")
-      cy.get('.textInput').should("have.value","vishal")
+    it("Check for submit without values",()=>{
+      cy.get('#input-name').should("have.value")
+      cy.get('#input-pass').should("have.value")
+      cy.get('#submit-button').click() 
     })
+    it("Check for submit without values",()=>{
+      cy.get('#input-name').should("have.attr","placeholder","enter name")
+      cy.get('#input-pass').should("have.attr","placeholder","enter password")
+      cy.get('#submit-button').click() 
+    })
+
 })
