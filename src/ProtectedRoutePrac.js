@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { Button, Checkbox, Form, Input } from 'antd';
 import { styled } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const DivForm=styled.div`
 display:grid;
@@ -69,14 +70,19 @@ export const Comp2 = ({setBtnLog ,btnLog}) => {
       <Checkbox>name: vishal pass: 123</Checkbox>
     </Form.Item>
 
-    <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
-      <Button className="subBtn" type="primary" htmlType="submit">
+    <Form.Item wrapperCol={{ offset: 2, span: 16 }}>
+      <div style={{display:'flex'}}>
+        <Button className="subBtn" type="primary" htmlType="submit">
         Login
       </Button>
+      <Link to="/drawer">
+      <Button>Move to Drawer</Button>
+      </Link>
       <span></span>
       <Button className="unSubBtn" type="primary" onClick={btnUnsubscribe} >
         Logout
       </Button>
+      </div>
     </Form.Item>
   </Form>
   </DivForm>
